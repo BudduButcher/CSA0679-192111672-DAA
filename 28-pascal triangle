@@ -1,27 +1,19 @@
-#include<stdio.h>
-int main()
-{
-    int i, number, flag=0;
-
-    printf("Enter a number: ");
-    scanf("%d", &number);
-
-    if(number == 1 || number == 0){
-        printf("%d is a Perfect Square.", number);
-        flag=1;
-    }
-
-    for(i = 2; i <= number/2; i++)
-    {
-        if(number == i*i)
-        {
-            printf("%d is a Perfect Square.", number);
-            flag=1;
-            break;
-        }
-    }
-    if(flag == 0)
-        printf("%d is not a Perfect Square\n", number);
-
-    return 0;
+#include <stdio.h>
+int main() {
+   int rows, coef = 1, space, i, j;
+   printf("Enter the number of rows: ");
+   scanf("%d", &rows);
+   for (i = 0; i < rows; i++) {
+      for (space = 1; space <= rows - i; space++)
+         printf("  ");
+      for (j = 0; j <= i; j++) {
+         if (j == 0 || i == 0)
+            coef = 1;
+         else
+            coef = coef * (i - j + 1) / j;
+         printf("%4d", coef);
+      }
+      printf("\n");
+   }
+   return 0;
 }
